@@ -23,5 +23,9 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
+		paddingHorizontal:16
+		// flexDirection:'column',
+		// borderColor: 'red',
+		// borderWidth: 2,
 	},
 })

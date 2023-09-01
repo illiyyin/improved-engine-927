@@ -19,13 +19,15 @@ export default function Header() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width:'100%',
+	container: {
+		width: '100%',
 		flex: 1,
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-    flexDirection: 'row',
+		flexDirection: 'row',
+		borderColor: 'red',
+		borderWidth: 2,
 	},
 	greetText: {
 		color: '#29274C',

@@ -1,12 +1,37 @@
 import { StyleSheet, Text, View } from 'react-native'
+import ProgressCard from './ProgressCard'
+import { Color } from '../../constant'
+
+interface Card {
+	title: string
+	description: string
+	color?: Color
+}
+
+const obj: Card[] = [
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+]
 
 export default function Progress() {
 	return (
 		<View style={styles.container}>
-			<Text>Your Progress</Text>
+			<Text style={styles.yourProgressText}>Your Progress</Text>
 			<View style={styles.cardList}>
-				<Text>Card</Text>
-				<Text>Card 2</Text>
+				{obj.map((item) => (
+					<ProgressCard
+						description={item.description}
+						title={item.title}
+						color={item.color}
+					/>
+				))}
 			</View>
 		</View>
 	)
@@ -15,12 +40,18 @@ export default function Progress() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		width: '100%',
 		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
+		rowGap: 8,
 	},
 	cardList: {
 		flex: 1,
 		flexDirection: 'row',
+		columnGap: 4,
+	},
+	yourProgressText: {
+		fontSize: 20,
+		fontWeight: '600',
 	},
 })

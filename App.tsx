@@ -11,7 +11,7 @@ export default function App() {
 			<Header />
 			<Progress />
 			<Schedule />
-			<Nav/>
+			{/* <Nav/> */}
 			<StatusBar style="auto" />
 		</View>
 	)

@@ -1,19 +1,37 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { Color, color as colorScheme } from '../../constant'
+import React from 'react'
+import ScheduleSection from './ScheduleSection'
 
-export default function Schedule() {
+interface Card {
+	title: string
+	description: string
+	color?: Color
+}
+
+const obj: Card[] = [
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+]
+
+const Schedule= (props) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
-				<Text>Wednesday, March </Text>
+				<Text style={styles.textDate}>Wednesday, March </Text>
 				<Text>Icon Date</Text>
 			</View>
-			<View>
-				<View>
-					<Text>Card1</Text>
-				</View>
-				<View>
-					<Text>Card2</Text>
-				</View>
+			<View style={styles.sectionContainer}>
+				{obj.map((item) => (
+					<ScheduleSection description={item.description} title={item.title} />
+				))}
 			</View>
 		</View>
 	)
@@ -22,12 +40,24 @@ export default function Schedule() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		width: '100%',
 		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
+		flexDirection: 'column',
+	},
+	textDate: {
+		fontSize: 20,
+		fontWeight: '600',
 	},
 	header: {
-		flex: 1,
-		flexDirection:'row'
-	}
+		flexDirection: 'row',
+		width: '100%',
+		justifyContent: 'space-between',
+	},
+	sectionContainer: {
+		flex: 4,
+		width: '100%',
+		rowGap: 8,
+	},
 })
+
+export default Schedule

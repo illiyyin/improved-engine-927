@@ -1,5 +1,9 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import {
+	StyleSheet,
+	ScrollView,
+	StatusBar,
+	SafeAreaView,
+} from 'react-native'
 import Header from './src/components/header'
 import Progress from './src/components/progress'
 import Schedule from './src/components/schedule'
@@ -7,13 +11,15 @@ import Nav from './src/components/nav'
 
 export default function App() {
 	return (
-		<View style={styles.container}>
-			<Header />
-			<Progress />
-			<Schedule />
-			{/* <Nav/> */}
-			<StatusBar style="auto" />
-		</View>
+		<ScrollView>
+			<SafeAreaView style={styles.container}>
+				<Header />
+				<Progress />
+				<Schedule />
+				{/* <Nav/> */}
+				<StatusBar barStyle="light-content" />
+			</SafeAreaView>
+		</ScrollView>
 	)
 }
 
@@ -23,9 +29,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
-		paddingHorizontal:16
-		// flexDirection:'column',
-		// borderColor: 'red',
-		// borderWidth: 2,
+		paddingHorizontal: 16,
+		marginTop: StatusBar.length,
 	},
 })

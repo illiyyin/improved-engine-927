@@ -19,6 +19,78 @@ const obj: Card[] = [
 		title: 'Working Hours',
 		description: 'working hours exceeding by 3 hours',
 	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+		color: 'yellow',
+	},
+	{
+		title: 'Working Hours',
+		description: 'working hours exceeding by 3 hours',
+	},
 ]
 
 const Schedule= (props) => {

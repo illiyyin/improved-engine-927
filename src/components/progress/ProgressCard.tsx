@@ -1,23 +1,49 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { color as colorScheme } from '../../constant'
+import { Color, color as colorScheme, tmpColor } from '../../constant'
+import { ProgressChart } from 'react-native-chart-kit'
 
 type Card = {
 	title: string
 	description: string
-	color?: string
+	color?: Color
+	chartColorCode?: string
 }
 
 const ProgressCard: React.FC<Card> = (props) => {
-	const { description, title, color } = props
+	const { description, title, color, chartColorCode } = props
 	return (
 		<View
 			style={[
 				styles.container,
-				{ backgroundColor: color ? color : colorScheme.orange },
+				{
+					backgroundColor: color
+						? tmpColor[color]?.hex
+						: tmpColor['yellow']?.hex,
+				},
 			]}
 		>
-			<Text>Chart</Text>
+			<ProgressChart
+				height={100}
+				width={100}
+				data={{
+					data: [0.4],
+					colors: [colorScheme.orange],
+				}}
+				chartConfig={{
+					backgroundColor: color
+						? tmpColor[color]?.hex
+						: tmpColor['yellow']?.hex,
+					backgroundGradientFrom: color
+						? tmpColor[color]?.hex
+						: tmpColor['yellow']?.hex,
+					backgroundGradientTo: color
+						? tmpColor[color]?.hex
+						: tmpColor['yellow']?.hex,
+					color: (opacity = 0) => `rgba(${tmpColor[color].code}, ${opacity})`,
+				}}
+				hideLegend
+			/>
 			<Text style={styles.title}>{title}</Text>
 			<Text style={styles.description}>{description}</Text>
 		</View>

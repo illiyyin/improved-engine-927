@@ -6,6 +6,7 @@ interface Card {
 	title: string
 	description: string
 	color?: Color
+	chartColorCode?: string
 }
 
 const obj: Card[] = [
@@ -17,6 +18,7 @@ const obj: Card[] = [
 	{
 		title: 'Working Hours',
 		description: 'working hours exceeding by 3 hours',
+		color: 'orange',
 	},
 ]
 
@@ -30,6 +32,7 @@ export default function Progress() {
 						description={item.description}
 						title={item.title}
 						color={item.color}
+						chartColorCode={item.chartColorCode}
 					/>
 				))}
 			</View>

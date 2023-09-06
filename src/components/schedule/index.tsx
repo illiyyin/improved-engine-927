@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Color, color as colorScheme } from '../../constant'
 import React from 'react'
 import ScheduleSection from './ScheduleSection'
@@ -93,18 +93,26 @@ const obj: Card[] = [
 	},
 ]
 
-const Schedule= (props) => {
+const Schedule = (props) => {
+	const windowHeight = Dimensions.get('window').height/2;
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
 				<Text style={styles.textDate}>Wednesday, March </Text>
 				<Text>Icon Date</Text>
 			</View>
-			<View style={styles.sectionContainer}>
-				{obj.map((item) => (
-					<ScheduleSection description={item.description} title={item.title} />
-				))}
-			</View>
+			<ScrollView
+				style={{ maxHeight: windowHeight, borderColor: 'green', borderWidth: 2 }}
+			>
+				<View style={styles.sectionContainer}>
+					{obj.map((item) => (
+						<ScheduleSection
+							description={item.description}
+							title={item.title}
+						/>
+					))}
+				</View>
+			</ScrollView>
 		</View>
 	)
 }
@@ -115,6 +123,8 @@ const styles = StyleSheet.create({
 		width: '100%',
 		backgroundColor: '#fff',
 		flexDirection: 'column',
+		// borderColor: 'red',
+		// borderWidth: 2,
 	},
 	textDate: {
 		fontSize: 20,

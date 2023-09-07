@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Modal, Button } from 'react-native'
 import React from 'react'
 import { Color, color as colorScheme } from '../../constant'
 import { ProgressChart } from 'react-native-chart-kit'
@@ -13,6 +13,7 @@ type Card = {
 
 const ProgressCard: React.FC<Card> = (props) => {
 	const { description, title, color, chartColor, percentage } = props
+	const [open, setOpen] = React.useState(false)
 	return (
 		<View
 			style={[
@@ -22,6 +23,12 @@ const ProgressCard: React.FC<Card> = (props) => {
 				},
 			]}
 		>
+			{open ? (
+				<Modal style={{}}>
+					<Text>Isi modal</Text>
+					<Button title='close' onPress={()=>setOpen(false)}/>
+				</Modal>
+			) : null}
 			<ProgressChart
 				height={100}
 				width={100}
@@ -38,7 +45,10 @@ const ProgressCard: React.FC<Card> = (props) => {
 				hideLegend
 				strokeWidth={6}
 			/>
-			<Text style={styles.title}>{title}</Text>
+
+			<Text style={styles.title} onPress={() => setOpen(true)}>
+				{title}
+			</Text>
 			<Text style={styles.description}>{description}</Text>
 		</View>
 	)

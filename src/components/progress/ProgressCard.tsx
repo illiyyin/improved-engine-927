@@ -1,25 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Color, color as colorScheme, tmpColor } from '../../constant'
+import { Color, color as colorScheme } from '../../constant'
 import { ProgressChart } from 'react-native-chart-kit'
 
 type Card = {
 	title: string
 	description: string
-	color?: Color
-	chartColorCode?: string
+	color: Color
+	chartColor: Color
+	percentage: number
 }
 
 const ProgressCard: React.FC<Card> = (props) => {
-	const { description, title, color, chartColorCode } = props
+	const { description, title, color, chartColor, percentage } = props
 	return (
 		<View
 			style={[
 				styles.container,
 				{
-					backgroundColor: color
-						? tmpColor[color]?.hex
-						: tmpColor['yellow']?.hex,
+					backgroundColor: colorScheme[color || 'orange'].hex,
 				},
 			]}
 		>
@@ -27,22 +26,17 @@ const ProgressCard: React.FC<Card> = (props) => {
 				height={100}
 				width={100}
 				data={{
-					data: [0.4],
-					colors: [colorScheme.orange],
+					data: [percentage],
+					colors: [colorScheme.orange.hex],
 				}}
 				chartConfig={{
-					backgroundColor: color
-						? tmpColor[color]?.hex
-						: tmpColor['yellow']?.hex,
-					backgroundGradientFrom: color
-						? tmpColor[color]?.hex
-						: tmpColor['yellow']?.hex,
-					backgroundGradientTo: color
-						? tmpColor[color]?.hex
-						: tmpColor['yellow']?.hex,
-					color: (opacity = 0) => `rgba(${tmpColor[color].code}, ${opacity})`,
+					backgroundGradientFrom: colorScheme[color || 'orange'].hex,
+					backgroundGradientTo: colorScheme[color || 'orange'].hex,
+					color: (opacity = 0) =>
+						`rgba(${colorScheme[chartColor || 'white'].code}, ${opacity})`,
 				}}
 				hideLegend
+				strokeWidth={6}
 			/>
 			<Text style={styles.title}>{title}</Text>
 			<Text style={styles.description}>{description}</Text>

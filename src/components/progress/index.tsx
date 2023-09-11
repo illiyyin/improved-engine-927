@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Button } from 'react-native'
 import ProgressCard from './ProgressCard'
 import { Color } from '../../constant'
+import { useModal } from 'react-native-modalfy'
 
 interface Card {
 	title: string
@@ -28,9 +29,13 @@ const obj: Card[] = [
 ]
 
 export default function Progress() {
+	const { openModal } = useModal()
+
+  const sendMessage = () => openModal('MessageSentModal')
 	return (
 		<View style={styles.container}>
 			<Text style={styles.yourProgressText}>Your Progress</Text>
+			<Button onPress={sendMessage} title='open'/>
 			<View style={styles.cardList}>
 				{obj.map((item) => (
 					<ProgressCard

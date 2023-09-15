@@ -37,6 +37,7 @@ const ScheduleSection: React.FC<Card> = (props) => {
 					>
 						{listPicture.map((item, index) => (
 							<Image
+							key={`${item}-${index}`}
 								style={{
 									borderRadius: 999,
 									left: -8 * index,

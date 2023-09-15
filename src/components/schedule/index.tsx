@@ -94,7 +94,7 @@ const obj: Card[] = [
 ]
 
 const Schedule = (props) => {
-	const windowHeight = Dimensions.get('window').height/2;
+	const windowHeight = Dimensions.get('window').height / 2
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
@@ -102,11 +102,16 @@ const Schedule = (props) => {
 				<Text>Icon Date</Text>
 			</View>
 			<ScrollView
-				style={{ maxHeight: windowHeight, borderColor: 'green', borderWidth: 2 }}
+				style={{
+					maxHeight: windowHeight,
+					borderColor: 'green',
+					borderWidth: 2,
+				}}
 			>
 				<View style={styles.sectionContainer}>
-					{obj.map((item) => (
+					{obj.map((item, index) => (
 						<ScheduleSection
+							key={`${item.title}-${index}`}
 							description={item.description}
 							title={item.title}
 						/>
